@@ -11,6 +11,7 @@ RUN apt-get update && apt-get install -y \
     libxml2-dev \
     libpng-dev \
     libjpeg-dev \
+    supervisor \
     default-mysql-client \
     && docker-php-ext-configure gd --with-jpeg \
     && docker-php-ext-install pdo_mysql mbstring zip xml bcmath pcntl exif gd opcache \
