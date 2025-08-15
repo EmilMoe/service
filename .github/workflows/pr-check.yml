@@ -13,5 +13,8 @@ jobs:
       - name: Build Docker image
         run: docker build -t service:test .
 
+      - name: Verify redis extension
+        run: docker run --rm service:test php -m | grep -q redis
+
       - name: Verify runtime
         run: docker run --rm service:test php -v
