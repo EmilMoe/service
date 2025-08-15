@@ -4,17 +4,25 @@ on:
   pull_request:
 
 jobs:
-  build:
+  checks:
+    if: github.base_ref == 'development' || (github.base_ref == 'main' && github.head_ref == 'development')
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
 
+      - name: Lint Dockerfile
+        uses: hadolint/hadolint-action@v3.1.0
+        with:
+          dockerfile: Dockerfile
+
       - name: Build Docker image
+        if: github.base_ref == 'main'
         run: docker build -t service:test .
 
       - name: Verify redis extension
         run: docker run --rm service:test php -m | grep -q redis
 
       - name: Verify runtime
+        if: github.base_ref == 'main'
         run: docker run --rm service:test php -v
