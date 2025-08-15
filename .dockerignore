@@ -1,0 +1,9 @@
+# Ignore version control and CI files
+.git
+.github
+
+# Ignore documentation
+README.md
+
+# Ignore Dockerfile itself
+Dockerfile
