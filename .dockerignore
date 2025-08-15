@@ -7,5 +7,3 @@ README.md
 
 # Ignore Dockerfile itself
 Dockerfile
-
-# TODO: Add application-specific ignores once source code exists
