@@ -27,5 +27,9 @@ jobs:
     - name: Build Docker image
       run: docker build -t ghcr.io/emilmoe/service:latest .
 
+    - name: Verify redis extension
+      run: |
+        docker run --rm ghcr.io/emilmoe/service:latest php -m | grep -q redis
+
     - name: Push Docker image
       run: docker push ghcr.io/emilmoe/service:latest
