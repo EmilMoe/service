@@ -5,7 +5,7 @@ This repository is a foundation for building and publishing a PHP-based Docker i
 ## Key Components
 
 - **Dockerfile**
-  Defines a PHP 8.3 CLI image. Installs common extensions (e.g., pdo_mysql, mbstring, gd, redis) and tools (git, curl, supervisor, MySQL client). Sets the final user to `www-data` and the working directory to `/app`.
+  Defines a PHP 8.4 CLI image. Installs common extensions (e.g., pdo_mysql, mbstring, gd, redis) and tools (git, curl, supervisor, MySQL client). Sets the final user to `www-data` and the working directory to `/app`.
 - **GitHub Actions workflow**
   On every push to `main`, checks out the repo, logs in to GitHub Container Registry, builds the Docker image tagged `ghcr.io/emilmoe/service:latest`, and pushes it to the registry.
 
