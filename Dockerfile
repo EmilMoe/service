@@ -2,7 +2,9 @@ FROM php:8.4-cli
 
 USER root
 
-RUN apt-get update && apt-get install -y \
+RUN cp "$PHP_INI_DIR/php.ini-production" "$PHP_INI_DIR/php.ini" \
+ && printf '%s\n' 'expose_php=Off' > "$PHP_INI_DIR/conf.d/zz-base.ini" \
+    && apt-get update && apt-get install -y \
     libzip-dev \
     unzip \
     git \
