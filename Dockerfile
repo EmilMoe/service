@@ -25,6 +25,9 @@ RUN echo "memory_limit=512M" > "$PHP_INI_DIR/conf.d/zz-memory-limit.ini" \
  && echo "realpath_cache_ttl=600"     >> "$PHP_INI_DIR/conf.d/zz-memory-limit.ini" \
  && mkdir -p /config/psysh && chown -R www-data:www-data /config/psysh
 
+# Print PHP version
+RUN php -v
+
 # Run the application as www-data for security
 USER www-data
 
